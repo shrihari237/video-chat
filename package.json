@@ -11,6 +11,7 @@
   "dependencies": {
     "ejs": "^3.1.9",
     "express": "^4.19.2",
+    "nodemailer": "^6.9.13",
     "peer": "^1.0.2",
     "socket.io": "^4.7.5",
     "uuid": "^9.0.1"

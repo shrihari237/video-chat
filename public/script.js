@@ -94,6 +94,29 @@ $(function(){
             $('#chat_message').val("")
         }
     })
+    $("#invite_button").click(function(){
+        const to = prompt("Enter the email")
+
+        const data ={
+            to:to,
+            url:window.location.href
+        }
+
+        $.ajax({
+            url:"/send-mail",
+            type:"POST",
+            data:JSON.stringify(data),
+            dataType:"json",
+            contentType:"application/json",
+            success:function(result){
+                alert("Invitation sent")
+            },
+            error:function(result){
+                console.log(result)
+            }
+
+        })
+    })
     $("#chat_message").keydown(function(e){
         if(e.key == "Enter" && $("#chat_message").val().length != 0){
             socket.emit("message",$("#chat_message").val())
